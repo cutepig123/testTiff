@@ -1,0 +1,13 @@
+cmake_minimum_required(VERSION 2.8)
+
+project(testtiff)
+
+ADD_SUBDIRECTORY(libtiff)
+
+include_directories("${CMAKE_CURRENT_SOURCE_DIR}/libtiff")
+
+add_executable(test
+	app.cpp
+	)
+	
+target_link_libraries(test libtiff)
