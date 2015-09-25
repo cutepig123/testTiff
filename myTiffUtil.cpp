@@ -20,6 +20,16 @@ int typeSize(BufType t)
 		return 2;
 	return 4;
 }
+
+const void *getp(MyBuf const &b, int x, int y)
+{
+	assert(x>=0 && x<b.w);
+	assert(y>=0 && y<b.h);
+	int nt = typeSize(b.type);
+	const char *p = (char*)b.p +y*b.linestep + nt*x;
+	return p;
+}
+
 int tiffSize_(TIFF *image, int *W, int *H, int *linestep, BufType *Type)
 {
   uint16 bps, spp, sfm;
